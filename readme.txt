@@ -1,4 +1,4 @@
-#Install Instructions
+# Install Instructions #
 
 Install as a normal WordPress plugin.
 
