@@ -32,10 +32,14 @@ class WC_Integration_Disposable_Emails extends WC_Integration {
 
   // add_filter( 'is_email', array( $this, 'is_email' ) );
 
-   add_filter( 'registration_errors', array( $this, 'registration_errors' ), 100, 3 );
+   add_filter( 'registration_errors', array( $this, 'registration_errors' ), 10, 3 );
+   add_filter( 'woocommerce_registration_errors', array( $this, 'registration_errors' ), 10, 3 );
+
  }
 
  function registration_errors( $errors, $sanitized_user_login, $user_email ) {
+
+   global $woocommerce;
 
    if( empty( $errors->errors ) && 'yes' === $this->get_option( 'enabled' ) ) {
      if( $this->is_temp_mail( $user_email ) ) {
@@ -68,7 +72,7 @@ class WC_Integration_Disposable_Emails extends WC_Integration {
      'error' => array(
        'title'             => __( 'Error Message', 'integration-disposable-emails' ),
        'type'              => 'text',
-       'default'           => __( "<strong>Error: </strong>Sorry no disposable emails allowed.", "integration-disposable-emails" )
+       'default'           => __( "<strong>Sorry no disposable emails allowed.</strong>", "integration-disposable-emails" )
      )
    );
  }
