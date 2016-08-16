@@ -53,7 +53,7 @@ class WC_Integration_Disposable_Emails extends WC_Integration {
 
  function is_temp_mail($mail) {
 
-    $mail_domains_ko = file( WC_Disposable_Emails::path() . 'vendor/disposable-email-domains/disposable_email_blacklist.conf', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $mail_domains_ko = file( WC_Disposable_Emails::path() . 'vendor/pross/disposable-email-domains/disposable_email_blacklist.conf', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
     //Need to ensure the mail contains an @ to avoid undefined offset
     return in_array(explode('@', $mail)[1], $mail_domains_ko);
