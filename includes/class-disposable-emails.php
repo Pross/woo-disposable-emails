@@ -45,7 +45,7 @@ class WC_Integration_Disposable_Emails extends WC_Integration {
      if( $this->is_temp_mail( $user_email ) ) {
        $logger = new WC_Logger();
        $errors->add( 'invalid_email', $this->get_option( 'error' ) );
-       $logger->add( $this->id, sprintf( '%s : Email Blocked.', $user_email ) );
+       $logger->add( $this->id, sprintf( 'Registration Blocked: User %s | Email: %s.', $sanitized_user_login, $user_email ) );
      }
    }
    return $errors;
