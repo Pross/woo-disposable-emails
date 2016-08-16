@@ -1,4 +1,4 @@
-=== Woocommerce Disposable Emails ===
+=== Woo Disposable Emails ===
 Requires at least: 4.0
 Contributors: pross
 Tested up to: 4.7
