@@ -1,18 +1,5 @@
 {
-  "repositories": [
-  {
-      "type": "package",
-      "package": {
-          "name": "disposable-email-domains",
-          "version": "1.0",
-          "source": {
-              "url": "https://github.com/martenson/disposable-email-domains.git",
-              "type": "git",
-              "reference": "master"
-          }
-      }
-  }],
   "require" : {
-    "disposable-email-domains": "1.0"
+    "pross/disposable-email-domains": ">=1.0"
   }
 }
