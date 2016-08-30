@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Woo Disposable Emails
-Description: Block disposable email addresses at signup woth Woocommerce.
+Description: Block disposable email addresses at signup woth WooCommerce.
 Author: Simon Prosser
 Author URI: https://pross.org.uk
 Version: 1.1

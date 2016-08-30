@@ -17,9 +17,9 @@ class WC_Integration_Disposable_Emails extends WC_Integration {
 	* Init and hook in the integration.
 	*/
 	public function __construct() {
-		$this->id								 = 'integration-disposable-emails';
-		$this->method_title			 = __( 'Disposable Emails', 'integration-disposable-emails' );
-		$this->method_description = __( 'Filter out unwanted users of disposable emails.', 'integration-disposable-emails' );
+		$this->id								 = 'woo-disposable-emails';
+		$this->method_title			 = __( 'Disposable Emails', 'woo-disposable-emails' );
+		$this->method_description = __( 'Filter out unwanted users of disposable emails.', 'woo-disposable-emails' );
 
 		// Load the settings.
 		$this->init_form_fields();
@@ -72,28 +72,28 @@ class WC_Integration_Disposable_Emails extends WC_Integration {
 	public function init_form_fields() {
 		$this->form_fields = array(
 			'enabled' => array(
-				'title' => __( 'Enable Disposable Email Filter', 'integration-disposable-emails' ),
+				'title' => __( 'Enable Disposable Email Filter', 'woo-disposable-emails' ),
 				'type' => 'checkbox',
-				'description' => __( 'All signups will be checked against the email list', 'integration-disposable-emails' ),
+				'description' => __( 'All signups will be checked against the email list', 'woo-disposable-emails' ),
 				'default' => 'no'
 			),
 			'error' => array(
-			 'title' => __( 'Error Message', 'integration-disposable-emails' ),
+			 'title' => __( 'Error Message', 'woo-disposable-emails' ),
 			 'type' => 'text',
-			 'default' => __( "<strong>Sorry no disposable emails allowed.</strong>", "integration-disposable-emails" ),
-			 'description' => __( 'Error to display on the signup page when user is blocked.', 'integration-disposable-emails' )
+			 'default' => __( "<strong>Sorry no disposable emails allowed.</strong>", "woo-disposable-emails" ),
+			 'description' => __( 'Error to display on the signup page when user is blocked.', 'woo-disposable-emails' )
 			),
 			'whitelist' => array(
-			 'title' => __( 'Domain Whitelist', 'integration-disposable-emails' ),
+			 'title' => __( 'Domain Whitelist', 'woo-disposable-emails' ),
 			 'type' => 'textarea',
 			 'default' => '',
-			 'description' => __( 'Comma separated list of email domains to NEVER block.', 'integration-disposable-emails' )
+			 'description' => __( 'Comma separated list of email domains to NEVER block.', 'woo-disposable-emails' )
 			),
 			'blacklist' => array(
-			 'title' => __( 'User List', 'integration-disposable-emails' ),
+			 'title' => __( 'User List', 'woo-disposable-emails' ),
 			 'type' => 'textarea',
 			 'default' => '',
-			 'description' => __( 'Comma separated list of email domains to add to main block list.', 'integration-disposable-emails' )
+			 'description' => __( 'Comma separated list of email domains to add to main block list.', 'woo-disposable-emails' )
 			),
 		);
 	}
