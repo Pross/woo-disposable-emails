@@ -11,7 +11,9 @@
     "!.gitignore",
     "!**/node_modules/**",
     "!package.json",
-    "!DS_Store"
+    "!DS_Store",
+    "!composer.lock",
+    "!composer.json"
   ],
   "devDependencies": {
     "grunt": "~0.4.5",

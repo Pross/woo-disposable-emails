@@ -2,8 +2,8 @@ module.exports = function(grunt) {
 
 		require('load-grunt-tasks')(grunt);
 
-		var pkg     = grunt.file.readJSON('package.json');
-		var slug    = 'woo-disposable-emails';
+		var pkg		 = grunt.file.readJSON('package.json');
+		var slug		= 'woo-disposable-emails';
 		pkg.version = grunt.file.read( slug + '.php' )
 										.match(/(Version):\s+?([0-9\.-]+)/g)[0]
 										.replace(/Version:\s+?/, '')
@@ -65,7 +65,8 @@ module.exports = function(grunt) {
 
 		grunt.registerTask( 'deploy', [
 			'clean',
-      'copy',
+			'copy',
+			'replace',
 			'wp_deploy'
 		] )
 
