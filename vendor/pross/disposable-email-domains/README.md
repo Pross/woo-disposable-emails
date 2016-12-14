@@ -13,7 +13,7 @@ The file [whitelist.conf](whitelist.conf) gathers email domains that are often i
 
 Example Usage
 =============
-Python
+**Python**
 ```Python
 blacklist = ('disposable_email_blacklist.conf')
 blacklist_content = [line.rstrip() for line in blacklist.readlines()]
@@ -23,7 +23,15 @@ if email.split('@')[1] in blacklist_content:
 else:
     return True
 ```
-PHP contributed by @txt3rob and @deguif
+
+Available as [PyPI module](https://pypi.python.org/pypi/disposable-email-domains) thanks to @di
+```
+>>> from disposable_email_domains import blacklist
+>>> 'bearsarefuzzy.com' in blacklist
+True
+```
+
+**PHP** contributed by @txt3rob and @deguif
 ```php
 function is_temp_mail($mail) {
     $mail_domains_ko = file('disposable_email_blacklist.conf', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -31,6 +39,23 @@ function is_temp_mail($mail) {
     //Need to ensure the mail contains an @ to avoid undefined offset
     return in_array(explode('@', $mail)[1], $mail_domains_ko);
 }
+```
+**Ruby on Rails** contributed by @MitsunChieh
+
+In resource model, usually it is `user.rb`
+```Ruby
+before_validation :reject_email_blacklist
+
+def reject_email_blacklist
+  blacklist = File.read('config/disposable_email_blacklist.conf').split("\n")
+
+  if blacklist.include?(email.split('@')[1])
+    errors[:email] << 'invalid email'
+    return false
+  else
+    return true
+  end
+end
 ```
 
 Contributing
@@ -47,4 +72,7 @@ to add contents of another file in the same format (only second level domains on
 
 Changelog
 ============
-7/27/16 - Converted all domains to the second level. This means that starting from [this commit](https://github.com/martenson/disposable-email-domains/commit/61ae67aacdab0b19098de2e13069d7c35b74017a) the implementers should take care of matching the second level domain names properly i.e. `@xxx.yyy.zzz` should match `yyy.zzz` in blacklist more info in [#46](https://github.com/martenson/disposable-email-domains/issues/46)
+
+* 12/6/16 - Available as [PyPI module](https://pypi.python.org/pypi/disposable-email-domains) thanks to @di
+
+* 7/27/16 - Converted all domains to the second level. This means that starting from [this commit](https://github.com/martenson/disposable-email-domains/commit/61ae67aacdab0b19098de2e13069d7c35b74017a) the implementers should take care of matching the second level domain names properly i.e. `@xxx.yyy.zzz` should match `yyy.zzz` in blacklist more info in [#46](https://github.com/martenson/disposable-email-domains/issues/46)
